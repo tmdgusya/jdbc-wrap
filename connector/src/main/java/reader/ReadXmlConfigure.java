@@ -1,6 +1,10 @@
 package reader;
 
 import configure.Configure;
+import lombok.extern.slf4j.Slf4j;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -13,10 +17,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
+@Slf4j
 public class ReadXmlConfigure implements ReadConfiguration {
 
     private final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
     private DocumentBuilder documentBuilder;
+    private static final Logger log = LoggerFactory.getLogger(ReadXmlConfigure.class);
 
     public ReadXmlConfigure() {
         setUpDocumentBuilder();
@@ -30,12 +36,12 @@ public class ReadXmlConfigure implements ReadConfiguration {
 
         Element documentElement = document.getDocumentElement();
 
-        System.out.printf(documentElement.toString());
-
         String url = getTagValue("url", documentElement);
         String user = getTagValue("user", documentElement);
         String password = getTagValue("password", documentElement);
         String database = getTagValue("database", documentElement);
+
+        log.info("Create Connection Configure Class [url = {}, user = {}, database = {}]", url, user, database);
 
         return new Configure(url, database, user, password);
     }
