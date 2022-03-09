@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <configure>
-    <url>jdbc://localhost:3306</url>
+    <url>jdbc:mysql://localhost:3306</url>
     <user>root</user>
     <database>test</database>
-    <password>1234</password>
+    <password>root</password>
+    <driver>com.mysql.jdbc.Driver</driver>
 </configure>

@@ -17,7 +17,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
-@Slf4j
 public class ReadXmlConfigure implements ReadConfiguration {
 
     private final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -40,10 +39,11 @@ public class ReadXmlConfigure implements ReadConfiguration {
         String user = getTagValue("user", documentElement);
         String password = getTagValue("password", documentElement);
         String database = getTagValue("database", documentElement);
+        String driver = getTagValue("driver", documentElement);
 
         log.info("Create Connection Configure Class [url = {}, user = {}, database = {}]", url, user, database);
 
-        return new Configure(url, database, user, password);
+        return new Configure(url, database, user, password, driver);
     }
 
     private Document configFileToDocuments(File configurationFile) {
