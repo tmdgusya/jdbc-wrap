@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import configure.Configure;
 import exception.NotExistConfigureException;
 
-public abstract class SessionFactory {
+public class SessionFactory {
 
     private static final Logger log = LoggerFactory.getLogger(SessionFactory.class);
 
