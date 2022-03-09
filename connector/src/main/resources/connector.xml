@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<configure>
+    <url>jdbc://localhost:3306</url>
+    <user>root</user>
+    <database>test</database>
+    <password>1234</password>
+</configure>
